@@ -18,11 +18,13 @@ class TwentyMinuteTimer : AppCompatActivity() {
         setContentView(R.layout.activity_twenty_minute_timer)
 
         var textView = findViewById<TextView>(R.id.text_view)
-        val duration = TimeUnit.MINUTES.toMillis(20)
+        val duration = TimeUnit.MINUTES.toMillis(1)
         var veinte = object : CountDownTimer(duration, 1000)
         {
             override fun onTick(l: Long){
-                var sDuration = String.format(Locale.ENGLISH, "%02d : %02d", TimeUnit.MILLISECONDS.toMinutes(l), TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)))
+                var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
+                        TimeUnit.MILLISECONDS.toMinutes(l),TimeUnit.MILLISECONDS.toSeconds(l) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)))
                 textView.text = sDuration
             }
 
