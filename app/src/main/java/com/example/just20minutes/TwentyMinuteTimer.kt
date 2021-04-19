@@ -39,5 +39,9 @@ class TwentyMinuteTimer : AppCompatActivity() {
             veinte.start()
             startTimerButton.isVisible = false
         }
+
+        //maybe move to new fragment and have the following on the new fragment
+        //textView and 2 buttons set visible
+        //setOnClickListener for both buttons --> move to new intent/fragment
     }
 }

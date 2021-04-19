@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,TwentyMinuteTimer::class.java)
             startActivity(intent)
         }
+
+        //checklist.setOnClickListener --> checklist fragment/intent
     }
 }
 
