@@ -17,8 +17,14 @@ class TwentyMinuteTimer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_minute_timer)
 
+        val allGoodButton = findViewById<Button>(R.id.allGoodButton)
+        allGoodButton.isVisible = false
+        val needBreakButton = findViewById<Button>(R.id.needBreakButton)
+        needBreakButton.isVisible = false
+
         var textView = findViewById<TextView>(R.id.text_view)
         val duration = TimeUnit.MINUTES.toMillis(1)
+        val durationTwo = TimeUnit.MINUTES.toMillis(1)
         var veinte = object : CountDownTimer(duration, 1000)
         {
             override fun onTick(l: Long){
@@ -30,6 +36,21 @@ class TwentyMinuteTimer : AppCompatActivity() {
 
             override fun onFinish() {
                 textView.isVisible = false
+                allGoodButton.isVisible = true
+                needBreakButton.isVisible = true
+                allGoodButton.setOnClickListener{
+                    //takes you to the item page
+                }
+                needBreakButton.setOnClickListener{
+                    //takes you to the help timer page
+                }
+                var cinco = object : CountDownTimer(durationTwo, 1000)
+                {
+                    //could make override fun onTick that makes it so the timer shows, not needed
+                    override fun onFinish() {
+                        //takes you to the item page
+                    }
+                }
             }
         }
 
