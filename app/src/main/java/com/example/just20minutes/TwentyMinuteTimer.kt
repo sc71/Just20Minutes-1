@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.navigation.findNavController
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -40,17 +41,22 @@ class TwentyMinuteTimer : AppCompatActivity() {
                 needBreakButton.isVisible = true
                 allGoodButton.setOnClickListener{
                     //takes you to the item page
+
+                    //maybe we can use a progress bar for this and set an onClickListener to that?
+                    //Widgets > ProgressBar
                 }
                 needBreakButton.setOnClickListener{
                     //takes you to the help timer page
                 }
-                var cinco = object : CountDownTimer(durationTwo, 1000)
+
+                //if you want to add a new timer maybe make a new function and put this code there.
+                /*var cinco = object : CountDownTimer(durationTwo, 1000)
                 {
                     //could make override fun onTick that makes it so the timer shows, not needed
                     override fun onFinish() {
                         //takes you to the item page
                     }
-                }
+                }*/
             }
         }
 
@@ -61,8 +67,6 @@ class TwentyMinuteTimer : AppCompatActivity() {
             startTimerButton.isVisible = false
         }
 
-        //maybe move to new fragment and have the following on the new fragment
-        //textView and 2 buttons set visible
         //setOnClickListener for both buttons --> move to new intent/fragment
     }
 }
