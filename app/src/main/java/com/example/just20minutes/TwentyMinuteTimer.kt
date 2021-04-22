@@ -17,40 +17,18 @@ class TwentyMinuteTimer : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_twenty_minute_timer)
 
-        val allGoodButton = findViewById<Button>(R.id.allGoodButton)
-        allGoodButton.isVisible = false
-        val needBreakButton = findViewById<Button>(R.id.needBreakButton)
-        needBreakButton.isVisible = false
-
         var textView = findViewById<TextView>(R.id.text_view)
         val duration = TimeUnit.MINUTES.toMillis(1)
-        val durationTwo = TimeUnit.MINUTES.toMillis(1)
-        var veinte = object : CountDownTimer(duration, 1000)
-        {
-            override fun onTick(l: Long){
+        var veinte = object : CountDownTimer(duration, 1000) {
+            override fun onTick(l: Long) {
                 var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
-                        TimeUnit.MILLISECONDS.toMinutes(l),TimeUnit.MILLISECONDS.toSeconds(l) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)))
+                        TimeUnit.MILLISECONDS.toMinutes(l),
+                        TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)))
                 textView.text = sDuration
             }
 
             override fun onFinish() {
                 textView.isVisible = false
-                allGoodButton.isVisible = true
-                needBreakButton.isVisible = true
-                allGoodButton.setOnClickListener{
-                    //takes you to the item page
-                }
-                needBreakButton.setOnClickListener{
-                    //takes you to the help timer page
-                }
-                var cinco = object : CountDownTimer(durationTwo, 1000)
-                {
-                    //could make override fun onTick that makes it so the timer shows, not needed
-                    override fun onFinish() {
-                        //takes you to the item page
-                    }
-                }
             }
         }
 
@@ -60,7 +38,6 @@ class TwentyMinuteTimer : AppCompatActivity() {
             veinte.start()
             startTimerButton.isVisible = false
         }
-
         //maybe move to new fragment and have the following on the new fragment
         //textView and 2 buttons set visible
         //setOnClickListener for both buttons --> move to new intent/fragment
