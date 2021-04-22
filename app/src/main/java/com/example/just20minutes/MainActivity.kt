@@ -15,6 +15,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,TwentyMinuteTimer::class.java)
             startActivity(intent)
         }
+
+        val toDoButton= findViewById<Button>(R.id.toDoButton)
+        toDoButton.setOnClickListener{
+            val intent = Intent(this,ToDoList::class.java)
+            startActivity(intent)
+        }
+        //checklist.setOnClickListener --> checklist fragment/intent
     }
 }
 

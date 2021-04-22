@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="no"
+        android:text="TODAY KIMMYYYYYYYYYYY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -30,13 +30,13 @@
         app:layout_constraintVertical_bias="0.337" />
 
     <Button
-        android:id="@+id/goToTimerButton"
+        android:id="@+id/toDoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
-        android:layout_marginEnd="159dp"
-        android:text="Go To Timer"
+        android:text="To Do"
+        app:layout_constraintBottom_toTopOf="@+id/goToTimerButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
