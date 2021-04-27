@@ -15,8 +15,8 @@ class RelaxTimer : AppCompatActivity() {
         setContentView(R.layout.activity_relax_timer)
 
         var textView = findViewById<TextView>(R.id.text_view)
-        val duration = TimeUnit.MINUTES.toMillis(1)
-        var veinte = object : CountDownTimer(duration, 1000) {
+        val duration = TimeUnit.MINUTES.toMillis(5)
+        var cinco = object : CountDownTimer(duration, 1000) {
             override fun onTick(l: Long) {
                 var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
                         TimeUnit.MILLISECONDS.toMinutes(l),
@@ -26,13 +26,14 @@ class RelaxTimer : AppCompatActivity() {
 
             override fun onFinish() {
                 textView.isVisible = false
+                //moves you to the item page
             }
         }
 
         val startTimerButton = findViewById<Button>(R.id.startTimerButton)
         startTimerButton.isVisible = true
         startTimerButton.setOnClickListener {
-            veinte.start()
+            cinco.start()
             startTimerButton.isVisible = false
         }
     }
