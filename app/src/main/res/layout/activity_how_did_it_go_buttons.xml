@@ -4,22 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ToDoList">
+    tools:context=".HowDidItGoButtons">
 
     <Button
-        android:id="@+id/addItemButton"
+        android:id="@+id/toRelaxTimerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD"
+        android:layout_marginStart="30dp"
+        android:text="I need a break"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/finishButton"
+        android:id="@+id/wentWellButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ALL DONE"
+        android:layout_marginEnd="30dp"
+        android:text="That went well!"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,4 +15,19 @@
         android:name="com.example.just20minutes.TwentyMinuteTimer"
         android:label="activity_twenty_minute_timer"
         tools:layout="@layout/activity_twenty_minute_timer" />
+    <activity
+        android:id="@+id/howDidItGoButtons"
+        android:name="com.example.just20minutes.HowDidItGoButtons"
+        android:label="activity_how_did_it_go_buttons"
+        tools:layout="@layout/activity_how_did_it_go_buttons" />
+    <activity
+        android:id="@+id/relaxTimer"
+        android:name="com.example.just20minutes.RelaxTimer"
+        android:label="activity_relax_timer"
+        tools:layout="@layout/activity_relax_timer" />
+    <activity
+        android:id="@+id/toDoList"
+        android:name="com.example.just20minutes.ToDoList"
+        android:label="activity_to_do_list"
+        tools:layout="@layout/activity_to_do_list" />
 </navigation>

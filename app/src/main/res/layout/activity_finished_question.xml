@@ -4,22 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ToDoList">
+    tools:context=".FinishedQuestion">
 
     <Button
-        android:id="@+id/addItemButton"
+        android:id="@+id/goToSixtySecondsTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ADD"
+        android:text="I want a meditate please."
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
-        android:id="@+id/finishButton"
+        android:id="@+id/finishedWithAppButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ALL DONE"
+        android:text="I'm done with the app."
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
