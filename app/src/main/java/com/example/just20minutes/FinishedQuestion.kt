@@ -14,12 +14,14 @@ class FinishedQuestion : AppCompatActivity() {
         goToSixtySecondsTimer.setOnClickListener{
             val intent = Intent(this,SixtySeconds::class.java)
             startActivity(intent)
+            finish()
         }
 
         val finishedWithAppButton = findViewById<Button>(R.id.finishedWithAppButton)
         finishedWithAppButton.setOnClickListener{
             val intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
