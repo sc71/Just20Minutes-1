@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Just20Minutes">
-        <activity android:name=".ToDoList"></activity>
+        <activity android:name=".SixtySeconds"></activity>
+        <activity android:name=".FinishedQuestion" />
+        <activity android:name=".RelaxTimer" />
+        <activity android:name=".ToDoList" />
         <activity android:name=".SplashScreen">
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,13 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TwentyMinuteTimer" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".HowDidItGoButtons" />
     </application>
 
 </manifest>
