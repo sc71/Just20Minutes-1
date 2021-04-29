@@ -17,10 +17,10 @@ class RelaxTimer : AppCompatActivity() {
         var textView = findViewById<TextView>(R.id.text_view)
         val duration = TimeUnit.MINUTES.toMillis(5)
         var cinco = object : CountDownTimer(duration, 1000) {
-            override fun onTick(l: Long) {
+            override fun onTick(timeLeft: Long) {
                 var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
-                        TimeUnit.MILLISECONDS.toMinutes(l),
-                        TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)))
+                        TimeUnit.MILLISECONDS.toMinutes(timeLeft),
+                        TimeUnit.MILLISECONDS.toSeconds(timeLeft) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeLeft)))
                 textView.text = sDuration
             }
 
