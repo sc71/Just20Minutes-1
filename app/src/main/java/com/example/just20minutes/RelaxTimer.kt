@@ -1,5 +1,6 @@
 package com.example.just20minutes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -15,7 +16,8 @@ class RelaxTimer : AppCompatActivity() {
         setContentView(R.layout.activity_relax_timer)
 
         var textView = findViewById<TextView>(R.id.text_view)
-        val duration = TimeUnit.MINUTES.toMillis(5)
+        val MINUTES = 1L
+        val duration = TimeUnit.MINUTES.toMillis(MINUTES)
         var cinco = object : CountDownTimer(duration, 1000) {
             override fun onTick(timeLeft: Long) {
                 var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
@@ -36,5 +38,10 @@ class RelaxTimer : AppCompatActivity() {
             cinco.start()
             startTimerButton.isVisible = false
         }
+    }
+
+    override fun onBackPressed() {
+        val goBackPlease = Intent(this,HowDidItGoButtons::class.java)
+        startActivity(goBackPlease)
     }
 }
