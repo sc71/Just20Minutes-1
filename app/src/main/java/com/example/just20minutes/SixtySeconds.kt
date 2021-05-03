@@ -29,6 +29,7 @@ class SixtySeconds : AppCompatActivity() {
 
             override fun onFinish() {
                 startActivity(goToMain)
+                finish()
             }
         }
 
@@ -38,5 +39,11 @@ class SixtySeconds : AppCompatActivity() {
             uno.start()
             startTimerButton.isVisible = false
         }
+    }
+
+    override fun onBackPressed() {
+        val goBackPlease = Intent(this,FinishedQuestion::class.java)
+        startActivity(goBackPlease)
+        finish()
     }
 }
