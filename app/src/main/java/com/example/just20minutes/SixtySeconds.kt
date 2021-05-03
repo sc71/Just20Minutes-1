@@ -44,5 +44,6 @@ class SixtySeconds : AppCompatActivity() {
     override fun onBackPressed() {
         val goBackPlease = Intent(this,FinishedQuestion::class.java)
         startActivity(goBackPlease)
+        finish()
     }
 }
