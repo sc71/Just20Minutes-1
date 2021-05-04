@@ -18,12 +18,14 @@ class HowDidItGoButtons : AppCompatActivity() {
         toRelaxTimerButton.setOnClickListener{
             val intent = Intent(this,RelaxTimer::class.java)
             startActivity(intent)
+            finish()
         }
 
         val wentWellButton = findViewById<Button>(R.id.wentWellButton)
         wentWellButton.setOnClickListener{
             //val intent = Intent(this,whatever the item page is called::class.java)
             //startactivity(intent)
+            finish()
         }
 
         val duration = TimeUnit.MINUTES.toMillis(1)
@@ -34,6 +36,7 @@ class HowDidItGoButtons : AppCompatActivity() {
 
             override fun onFinish() {
                 //takes you to the item page whatever we end up calling it
+                finish()
             }
         }
     }

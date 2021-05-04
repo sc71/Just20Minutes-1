@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -21,10 +20,11 @@ class TwentyMinuteTimer : AppCompatActivity() {
         var textView = findViewById<TextView>(R.id.text_view)
         val duration = TimeUnit.MINUTES.toMillis(1)
         var veinte = object : CountDownTimer(duration, 1000) {
-            override fun onTick(l: Long) {
+            override fun onTick(timeLeft: Long) {
                 var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
-                        TimeUnit.MILLISECONDS.toMinutes(l),
-                        TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(1)))
+                        TimeUnit.MILLISECONDS.toMinutes(timeLeft),
+                        TimeUnit.MILLISECONDS.toSeconds(timeLeft)
+                                - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeLeft)))
                 textView.text = sDuration
             }
 
