@@ -11,10 +11,11 @@ class ToDoList : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_to_do_list)
         // Initializing the array lists and the adapter
-        var itemlist = arrayListOf<String>()
-        var adapter = ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_multiple_choice
-                , itemlist)
+        var itemlist = arrayListOf<ToDoItem>()
+//       var adapter = ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_multiple_choice
+//                , itemlist)
+        var adapter = CustomArrayAdapter(this, itemlist)
 
         // Adding the items to the list when the add button is pressed
         val add = findViewById<Button>(R.id.add)
@@ -23,8 +24,8 @@ class ToDoList : AppCompatActivity() {
         val editText = findViewById<EditText>(R.id.editText)
         val listView = findViewById<ListView>(R.id.listView)
         add.setOnClickListener {
-
-            itemlist.add(editText.text.toString())
+            var item = ToDoItem(editText.text.toString(), false)
+            itemlist.add(item)
             listView.adapter = adapter
             adapter.notifyDataSetChanged()
             // This is because every time when you add the item the input space or the eidt text space will be cleared
