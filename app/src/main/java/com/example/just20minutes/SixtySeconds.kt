@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.isVisible
@@ -14,6 +15,7 @@ class SixtySeconds : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sixty_seconds)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val goToMain = Intent(this,MainActivity::class.java)
         var textView = findViewById<TextView>(R.id.text_view)

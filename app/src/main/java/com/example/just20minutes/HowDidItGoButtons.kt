@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.WindowManager
 import android.widget.Button
 import androidx.core.view.isVisible
 import java.util.*
@@ -13,6 +14,7 @@ class HowDidItGoButtons : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_how_did_it_go_buttons)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val toRelaxTimerButton = findViewById<Button>(R.id.toRelaxTimerButton)
         toRelaxTimerButton.setOnClickListener{
