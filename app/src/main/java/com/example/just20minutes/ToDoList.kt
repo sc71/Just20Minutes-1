@@ -22,10 +22,12 @@ class ToDoList : AppCompatActivity() {
         val clear = findViewById<Button>(R.id.clear)
         val editText = findViewById<EditText>(R.id.editText)
         val listView = findViewById<ListView>(R.id.listView)
+
+        listView.adapter = adapter
+
         add.setOnClickListener {
             var item = ToDoItem(editText.text.toString(), false)
             itemlist.add(item)
-            listView.adapter = adapter
             adapter.notifyDataSetChanged()
             // This is because every time when you add the item the input space or the eidt text space will be cleared
             editText.text.clear()
@@ -43,7 +45,13 @@ class ToDoList : AppCompatActivity() {
         }
         // Selecting and Deleting the items from the list when the delete button is pressed
         delete.setOnClickListener {
-//            val position: SparseBooleanArray = listView.checkedItemPositions
+            for (i in itemlist.size-1 downTo 0) {
+                if(itemlist[i].checkBox){
+                    adapter.remove(itemlist[i])
+                }
+            }
+            adapter.notifyDataSetChanged()
+        //    val position: SparseBooleanArray = listView.checkedItemPositions
 //            val count = listView.count
 //            var item = count - 1
 //            while (item >= 0) {
