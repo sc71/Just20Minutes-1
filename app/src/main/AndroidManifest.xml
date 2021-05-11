@@ -14,8 +14,8 @@
         <activity android:name=".FinishedQuestion" />
         <activity android:name=".RelaxTimer" />
         <activity android:name=".ToDoList" />
-        <activity android:name=".SplashScreen">
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".SplashScreen"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

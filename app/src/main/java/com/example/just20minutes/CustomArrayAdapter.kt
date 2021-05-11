@@ -31,8 +31,9 @@ class CustomArrayAdapter(context:Context, toDoItems:ArrayList<ToDoItem>): ArrayA
          }
 
          name.setOnClickListener{
-             val goToDaIdum = Intent(name.context, ItemScreen::class.java)
-             startActivity(goToDaIdum)
+             val goToItemPage = Intent(name.context, ItemScreen::class.java)
+             goToItemPage.putExtra(ItemScreen.EXTRA_TODO_ITEM,toDoItem)
+             name.context.startActivity(goToItemPage)
          }
         // Return the completed view to render on screen
         return rowView
