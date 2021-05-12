@@ -1,5 +1,6 @@
 package com.example.just20minutes
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.SparseBooleanArray
 import android.widget.*
@@ -12,9 +13,7 @@ class ToDoList : AppCompatActivity() {
         setContentView(R.layout.activity_to_do_list)
         // Initializing the array lists and the adapter
         var itemlist = arrayListOf<ToDoItem>()
-//       var adapter = ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_multiple_choice
-//                , itemlist)
+
         var adapter = CustomArrayAdapter(this, itemlist)
 
         // Adding the items to the list when the add button is pressed
@@ -23,10 +22,12 @@ class ToDoList : AppCompatActivity() {
         val clear = findViewById<Button>(R.id.clear)
         val editText = findViewById<EditText>(R.id.editText)
         val listView = findViewById<ListView>(R.id.listView)
+
+        listView.adapter = adapter
+
         add.setOnClickListener {
             var item = ToDoItem(editText.text.toString(), false)
             itemlist.add(item)
-            listView.adapter = adapter
             adapter.notifyDataSetChanged()
             // This is because every time when you add the item the input space or the eidt text space will be cleared
             editText.text.clear()
@@ -44,17 +45,27 @@ class ToDoList : AppCompatActivity() {
         }
         // Selecting and Deleting the items from the list when the delete button is pressed
         delete.setOnClickListener {
-            val position: SparseBooleanArray = listView.checkedItemPositions
-            val count = listView.count
-            var item = count - 1
-            while (item >= 0) {
-                if (position.get(item)) {
-                    adapter.remove(itemlist.get(item))
+            for (i in itemlist.size-1 downTo 0) {
+                if(itemlist[i].checkBox){
+                    adapter.remove(itemlist[i])
                 }
-                item--
             }
-            position.clear()
             adapter.notifyDataSetChanged()
+        //    val position: SparseBooleanArray = listView.checkedItemPositions
+//            val count = listView.count
+//            var item = count - 1
+//            while (item >= 0) {
+//                if (position.get(item)) {
+//                    adapter.remove(itemlist.get(item))
+//                }
+//                item--
+//            }
+//            position.clear()
+//            adapter.notifyDataSetChanged()
+//            for (i in itemlist.size()-1 downTo 0 )
+//            {
+//                if(itemlist.get(i).)
+//            }
         }
     }
 }
