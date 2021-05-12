@@ -26,7 +26,7 @@ class TwentyMinuteTimer : AppCompatActivity() {
             override fun onTick(l: Long) {
                 var sDuration = String.format(Locale.ENGLISH, "%02d : %02d",
                         TimeUnit.MILLISECONDS.toMinutes(l),
-                        TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(1)))
+                        TimeUnit.MILLISECONDS.toSeconds(l) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(l)))
                 textView.text = sDuration
             }
 
