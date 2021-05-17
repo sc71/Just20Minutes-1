@@ -25,6 +25,9 @@ class ToDoList : AppCompatActivity() {
 
         listView.adapter = adapter
 
+        //time for shared preferences
+        
+
         add.setOnClickListener {
             var item = ToDoItem(editText.text.toString(), false)
             itemlist.add(item)
