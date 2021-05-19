@@ -7,6 +7,7 @@ import android.os.CountDownTimer
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.core.view.isVisible
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -17,38 +18,52 @@ class HowDidItGoButtons : AppCompatActivity() {
         setContentView(R.layout.activity_how_did_it_go_buttons)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
+        //set progress bar values here
         val progressBar = findViewById<ProgressBar>(R.id.progressBar_howDidItGo_timer)
+        //sets max value for progress bar
+        progressBar.max = 90
+        //makes progress bar taller
+        progressBar.scaleY = 3F
 
-        val toRelaxTimerButton = findViewById<Button>(R.id.button_howDidItGo_timer)
+        //go to RelaxTimer
+        val toRelaxTimerButton = findViewById<Button>(R.id.toRelaxTimerButton)
         toRelaxTimerButton.setOnClickListener{
             val intent = Intent(this,RelaxTimer::class.java)
             startActivity(intent)
             finish()
         }
 
-        val wentWellButton = findViewById<Button>(R.id.wentWellButton)
-        wentWellButton.setOnClickListener{
-            //val intent = Intent(this,whatever the item page is called::class.java)
-            //startactivity(intent)
-            finish()
+        //buttonTimer got mad at the normal intent stuff so I created a fun for it
+        //changed it here to save space
+        progressBar.setOnClickListener{
+            wentWell()
         }
 
-        val duration = TimeUnit.MINUTES.toMillis(1)
-        val startTime = 2000
-        var timeLeftInMillis = startTime
-        var cinco = object : CountDownTimer(duration, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                timeLeftInMillis = millisUntilFinished.toInt()
-                progressBar.progress = (millisUntilFinished/100).toInt()
+        //determines loading bar progress (attempt 2)
+        //does everything except show loading bar progress...timer does work because it calls wentWell()
+        //shows progress only as horizontal loading bar --> couldn't figure out the other one so you get horizontal
 
-                //maybe we add the thing where the button becomes darker as we the time goes on
-                }
+        //adjust times here, but good enough for demo purposes
+        val buttonTimer = object: CountDownTimer(10000, 100){
+            private var progress = 0
+
+            //updates progress bar
+            override fun onTick(millisUntilFinished: Long) {
+                progressBar.progress = progress
+                progress += 1
+            }
 
             override fun onFinish() {
-                //takes you to the item page whatever we end up calling it
-                finish()
+                wentWell()
             }
         }
-        cinco.start()
+        buttonTimer.start()
+    }
+
+    //go to ItemScreen
+    fun wentWell(){
+        val intent = Intent(this,ItemScreen::class.java)
+        startActivity(intent)
+        finish()
     }
 }

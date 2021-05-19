@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".HowDidItGoButtons">
 
+    <!--    <Button-->
+    <!--        android:id="@+id/button_howDidItGo_timer"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:background="#00FFFFFF"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/wentWellButton"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/wentWellButton"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="That went well!"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/toRelaxTimerButton"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/progressBar_howDidItGo_timer" />-->
+
     <Button
         android:id="@+id/toRelaxTimerButton"
         android:layout_width="wrap_content"
@@ -15,37 +37,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wentWellButton" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_howDidItGo_timer" />
 
-    <Button
-        android:id="@+id/wentWellButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="That went well!"
+    <ProgressBar
+        android:id="@+id/progressBar_howDidItGo_timer"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="211dp"
+        android:layout_height="16dp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/toRelaxTimerButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_howDidItGo_timer" />
-
-    <Button
-        android:id="@+id/button_howDidItGo_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/wentWellButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progressBar_howDidItGo_timer"
-        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+    <TextView
+        android:id="@+id/textView_howDidItGo_wellText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/button_howDidItGo_timer"
-        app:layout_constraintEnd_toEndOf="@+id/button_howDidItGo_timer"
-        app:layout_constraintStart_toStartOf="@+id/button_howDidItGo_timer"
-        app:layout_constraintTop_toTopOf="@+id/button_howDidItGo_timer" />
+        android:layout_marginTop="16dp"
+        android:text="That went well!"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar_howDidItGo_timer" />
 </androidx.constraintlayout.widget.ConstraintLayout>
