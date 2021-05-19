@@ -1,18 +1,25 @@
 package com.example.just20minutes
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.SparseBooleanArray
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ListView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.just20minutes.R
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+
 
 class ToDoList : AppCompatActivity() {
+    companion object{
+        val PREFS_TODO_LIST = "todo prefs"
+        val PREFS_TODO_ITEM = "item prefs"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_to_do_list)
         // Initializing the array lists and the adapter
-        var itemlist = arrayListOf<ToDoItem>()
+        var itemlist = readingTodos()
 
         var adapter = CustomArrayAdapter(this, itemlist)
 
@@ -25,12 +32,14 @@ class ToDoList : AppCompatActivity() {
 
         listView.adapter = adapter
 
+
         add.setOnClickListener {
             var item = ToDoItem(editText.text.toString(), false)
             itemlist.add(item)
             adapter.notifyDataSetChanged()
             // This is because every time when you add the item the input space or the eidt text space will be cleared
             editText.text.clear()
+            savingTodos(itemlist)
         }
         // Clearing all the items in the list when the clear button is pressed
         clear.setOnClickListener {
@@ -40,7 +49,11 @@ class ToDoList : AppCompatActivity() {
         }
         // Adding the toast message to the list when an item on the list is pressed
         listView.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(this, "You Selected the item --> " + itemlist.get(position), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                this,
+                "You Selected the item --> " + itemlist.get(position),
+                Toast.LENGTH_SHORT
+            ).show()
             
         }
         // Selecting and Deleting the items from the list when the delete button is pressed
@@ -51,21 +64,27 @@ class ToDoList : AppCompatActivity() {
                 }
             }
             adapter.notifyDataSetChanged()
-        //    val position: SparseBooleanArray = listView.checkedItemPositions
-//            val count = listView.count
-//            var item = count - 1
-//            while (item >= 0) {
-//                if (position.get(item)) {
-//                    adapter.remove(itemlist.get(item))
-//                }
-//                item--
-//            }
-//            position.clear()
-//            adapter.notifyDataSetChanged()
-//            for (i in itemlist.size()-1 downTo 0 )
-//            {
-//                if(itemlist.get(i).)
-//            }
+            savingTodos(itemlist)
         }
+    }
+    fun savingTodos(itemlist:ArrayList<ToDoItem>){
+        val todoForLater = getPreferences(MODE_PRIVATE)
+
+        val arrayListTodoType = object : TypeToken<ArrayList<ToDoItem>>() {}.type
+
+        val prefsEditor = todoForLater.edit()
+        val gson = Gson()
+        val json = gson.toJson(itemlist, arrayListTodoType)
+        prefsEditor.putString(PREFS_TODO_LIST, json)
+        prefsEditor.commit();
+    }
+    fun readingTodos() : ArrayList<ToDoItem>{
+        val todoForLater = getPreferences(MODE_PRIVATE)
+        val arrayListTodoType = object : TypeToken<ArrayList<ToDoItem>>() {}.type
+        val defaultValue = "[]"
+        val jsonString = todoForLater.getString(PREFS_TODO_LIST, defaultValue)
+        val gson = Gson()
+        var eatenTodoList: ArrayList<ToDoItem> = gson.fromJson(jsonString, arrayListTodoType)
+        return eatenTodoList
     }
 }

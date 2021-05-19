@@ -28,6 +28,7 @@ class CustomArrayAdapter(context:Context, toDoItems:ArrayList<ToDoItem>): ArrayA
 
          check.setOnCheckedChangeListener { buttonView, isChecked ->
              toDoItem?.checkBox = isChecked
+
          }
 
          name.setOnClickListener{
