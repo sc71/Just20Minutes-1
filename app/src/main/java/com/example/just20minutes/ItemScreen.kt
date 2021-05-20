@@ -1,7 +1,9 @@
 package com.example.just20minutes
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 
 class ItemScreen : AppCompatActivity() {
@@ -18,5 +20,18 @@ class ItemScreen : AppCompatActivity() {
 
         var textView = findViewById<TextView>(R.id.itemName)
         textView.text = name
+
+        val finishedWithTaskButton = findViewById<Button>(R.id.finishedTaskButton)
+        finishedWithTaskButton.setOnClickListener{
+            val intent = Intent(this,ToDoList::class.java)
+            startActivity(intent)
+            finish()
+        }
+        val needHelpButton = findViewById<Button>(R.id.needHelpButton)
+        needHelpButton.setOnClickListener{
+            val intent = Intent(this,TwentyMinuteTimer::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

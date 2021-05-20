@@ -21,7 +21,7 @@ class HowDidItGoButtons : AppCompatActivity() {
         //set progress bar values here
         val progressBar = findViewById<ProgressBar>(R.id.progressBar_howDidItGo_timer)
         //sets max value for progress bar
-        progressBar.max = 90
+        progressBar.max = 2700
         //makes progress bar taller
         progressBar.scaleY = 3F
 
@@ -34,8 +34,8 @@ class HowDidItGoButtons : AppCompatActivity() {
         }
 
         //buttonTimer got mad at the normal intent stuff so I created a fun for it
-        //changed it here to save space
-        progressBar.setOnClickListener{
+        val wentWellButton = findViewById<Button>(R.id.wentWellButton)
+        wentWellButton.setOnClickListener{
             wentWell()
         }
 
@@ -44,7 +44,7 @@ class HowDidItGoButtons : AppCompatActivity() {
         //shows progress only as horizontal loading bar --> couldn't figure out the other one so you get horizontal
 
         //adjust times here, but good enough for demo purposes
-        val buttonTimer = object: CountDownTimer(10000, 100){
+        val buttonTimer = object: CountDownTimer(300000, 100){
             private var progress = 0
 
             //updates progress bar
@@ -62,7 +62,7 @@ class HowDidItGoButtons : AppCompatActivity() {
 
     //go to ItemScreen
     fun wentWell(){
-        val intent = Intent(this,ItemScreen::class.java)
+        val intent = Intent(this,ToDoList::class.java)
         startActivity(intent)
         finish()
     }

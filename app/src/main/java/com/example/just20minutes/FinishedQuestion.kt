@@ -24,4 +24,9 @@ class FinishedQuestion : AppCompatActivity() {
             finish()
         }
     }
+    fun backFromFinishedQuestion(){
+        val intent = Intent(this,ToDoList::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

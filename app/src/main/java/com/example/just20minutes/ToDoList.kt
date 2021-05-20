@@ -1,5 +1,6 @@
 package com.example.just20minutes
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
+//WE SHOULD FIND A WAY TO FINISH() ON ITEM NAME CLICKED
 
 class ToDoList : AppCompatActivity() {
     companion object{
@@ -46,16 +48,14 @@ class ToDoList : AppCompatActivity() {
 
             itemlist.clear()
             adapter.notifyDataSetChanged()
+            savingTodos(itemlist)
+            val intent = Intent(this,FinishedQuestion::class.java)
+            startActivity(intent)
+            finish()
+            //WE SHOULD MAKE IT NOT CLEAR EVERYTHING UNTIL AFTER THE FINISHED QUESTION IS ANSWERED
+            //OR WE COULD MAKE IT ASK IF YOU'RE SURE
         }
-        // Adding the toast message to the list when an item on the list is pressed
-        listView.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(
-                this,
-                "You Selected the item --> " + itemlist.get(position),
-                Toast.LENGTH_SHORT
-            ).show()
-            
-        }
+
         // Selecting and Deleting the items from the list when the delete button is pressed
         delete.setOnClickListener {
             for (i in itemlist.size-1 downTo 0) {

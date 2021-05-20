@@ -29,7 +29,8 @@ class RelaxTimer : AppCompatActivity() {
 
             override fun onFinish() {
                 textView.isVisible = false
-                //moves you to the item page
+                val intent = Intent(this@RelaxTimer,ToDoList::class.java)
+                startActivity(intent)
                 finish()
             }
         }

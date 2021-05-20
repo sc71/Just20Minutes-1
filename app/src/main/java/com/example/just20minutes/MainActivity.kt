@@ -10,12 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val goToTimerButton = findViewById<Button>(R.id.goToTimerButton)
-        goToTimerButton.setOnClickListener{
-            val intent = Intent(this,TwentyMinuteTimer::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         val toDoButton= findViewById<Button>(R.id.toDoButton)
         toDoButton.setOnClickListener{
