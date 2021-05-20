@@ -45,12 +45,11 @@ class ToDoList : AppCompatActivity() {
         }
         // Clearing all the items in the list when the clear button is pressed
         clear.setOnClickListener {
-
+            val intent = Intent(this,FinishedQuestion::class.java)
+            startActivity(intent)
             itemlist.clear()
             adapter.notifyDataSetChanged()
             savingTodos(itemlist)
-            val intent = Intent(this,FinishedQuestion::class.java)
-            startActivity(intent)
             finish()
             //WE SHOULD MAKE IT NOT CLEAR EVERYTHING UNTIL AFTER THE FINISHED QUESTION IS ANSWERED
             //OR WE COULD MAKE IT ASK IF YOU'RE SURE
