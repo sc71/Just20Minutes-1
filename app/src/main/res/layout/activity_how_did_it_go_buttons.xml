@@ -4,29 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HowDidItGoButtons">
-
-    <!--    <Button-->
-    <!--        android:id="@+id/button_howDidItGo_timer"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:background="#00FFFFFF"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/wentWellButton"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.5"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    <Button-->
-    <!--        android:id="@+id/wentWellButton"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="That went well!"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/toRelaxTimerButton"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.5"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/progressBar_howDidItGo_timer" />-->
+    tools:context=".HowDidItGoButtons"
+    android:background="@color/purple">
 
     <Button
         android:id="@+id/toRelaxTimerButton"
@@ -45,6 +24,7 @@
         android:layout_width="211dp"
         android:layout_height="16dp"
         android:clickable="true"
+        android:progressTint="@color/yellow"
         app:layout_constraintBottom_toTopOf="@+id/toRelaxTimerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

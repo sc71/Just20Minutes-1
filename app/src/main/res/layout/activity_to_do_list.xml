@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="To Do List Application (TM)"
+        android:text="To Do List"
         android:textColor="@color/black"
-        android:textSize="26dp"
+        android:textSize="28dp"
         />
     <EditText
         android:layout_below="@id/textView"
