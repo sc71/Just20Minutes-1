@@ -4,17 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/purple">
+    android:background="@color/purple"
+    tools:context=".MainActivity">
 
 
     <Button
         android:id="@+id/toDoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To Do"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="120dp"
+        android:text="To Do List"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="498dp"
+        android:layout_height="766dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:src="@drawable/imageedit_9_6501029649"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
