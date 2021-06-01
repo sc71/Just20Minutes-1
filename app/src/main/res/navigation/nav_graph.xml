@@ -30,4 +30,24 @@
         android:name="com.example.just20minutes.ToDoList"
         android:label="activity_to_do_list"
         tools:layout="@layout/activity_to_do_list" />
+    <activity
+        android:id="@+id/finishedQuestion"
+        android:name="com.example.just20minutes.FinishedQuestion"
+        android:label="activity_finished_question"
+        tools:layout="@layout/activity_finished_question" />
+    <activity
+        android:id="@+id/sixtySeconds"
+        android:name="com.example.just20minutes.SixtySeconds"
+        android:label="activity_sixty_seconds"
+        tools:layout="@layout/activity_sixty_seconds" />
+    <activity
+        android:id="@+id/itemScreen"
+        android:name="com.example.just20minutes.ItemScreen"
+        android:label="activity_item_screen"
+        tools:layout="@layout/activity_item_screen" />
+    <fragment
+        android:id="@+id/workTimer"
+        android:name="com.example.just20minutes.WorkTimer"
+        android:label="fragment_work_timer"
+        tools:layout="@layout/fragment_work_timer" />
 </navigation>
