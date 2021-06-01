@@ -10,13 +10,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val toDoButton= findViewById<Button>(R.id.toDoButton)
+        val workTimerButton = findViewById<Button>(R.id.workTimerButton)
+        val profileButton = findViewById<Button>(R.id.profileButton)
+
+        //to do button
         toDoButton.setOnClickListener{
             val intent = Intent(this,ToDoList::class.java)
             startActivity(intent)
             finish()
         }
+
+        //work timer button
+        workTimerButton.setOnClickListener{
+            val intent = Intent(this, WorkTimer::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 }
 
