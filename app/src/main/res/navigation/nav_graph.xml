@@ -50,4 +50,9 @@
         android:name="com.example.just20minutes.WorkTimer"
         android:label="fragment_work_timer"
         tools:layout="@layout/fragment_work_timer" />
+    <fragment
+        android:id="@+id/profileAndStats"
+        android:name="com.example.just20minutes.ProfileAndStats"
+        android:label="fragment_profile_and_stats"
+        tools:layout="@layout/fragment_profile_and_stats" />
 </navigation>
